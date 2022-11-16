@@ -1,15 +1,22 @@
-import { ProjectsList } from '../classes';
+import { TodosView } from './TodosView';
 
 export const ProjectsView = (projectsList) => {
   const projectsViewContainer = document.createElement('div');
-  const projectsListView = document.createElement('ul');
+  const projectsListView = document.createElement('div');
 
   const projects = projectsList.getProjects();
   projects.map((project) => {
-    const projectItem = document.createElement('li');
-    projectItem.innerHTML = project.projectName;
+    const projectItemContainer = document.createElement('div');
+    const projectItemName = document.createElement('h2');
 
-    projectsListView.appendChild(projectItem);
+    const projectTodosContainer = document.createElement('div');
+    projectTodosContainer.appendChild(TodosView(project));
+
+    projectItemName.innerHTML = project.projectName;
+
+    projectItemContainer.appendChild(projectItemName);
+    projectItemContainer.appendChild(projectTodosContainer);
+    projectsListView.appendChild(projectItemContainer);
   });
 
   projectsViewContainer.appendChild(projectsListView);
