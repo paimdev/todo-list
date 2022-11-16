@@ -1,3 +1,5 @@
+import { ProjectsList } from './ProjectsList';
+
 export class Project {
   constructor(projectName) {
     this.projectName = projectName;
@@ -6,5 +8,9 @@ export class Project {
 
   addTodo(todo) {
     this.todos.push(todo);
+  }
+
+  removeTodoById(id) {
+    this.todos = this.todos.filter((todo) => todo.id !== id);
   }
 }
