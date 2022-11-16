@@ -1,9 +1,6 @@
-import { Project } from './Project';
-
 export class ProjectsList {
   constructor() {
-    const defaultProject = new Project('default');
-    this.projectsList = [defaultProject];
+    this.projectsList = [];
   }
 
   addProject(project) {
